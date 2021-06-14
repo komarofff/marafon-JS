@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: rgb(241, 10, 10);  
+    overflow: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+.container{
+    display: flex;
+    padding:0 20px;
+    width: 100%;           
+}
+.slide{
+    height: 80vh;
+    border-radius: 20px;
+    color: #fff;
+    margin:10px;
+    flex:1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.slide h3{
+    position: absolute;
+    font-size: 24px;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px #000);
+    -webkit-filter: drop-shadow(0 0 5px #000);
+}
+.slide.active{
+    flex:10;
+}
+.slide.active h3{
+    opacity: 1;
+    transition: opacity .3s ease-in .4s;
+    -webkit-transition: opacity .3s ease-in .4s;
+    -moz-transition: opacity .3s ease-in .4s;
+    -ms-transition: opacity .3s ease-in .4s;
+    -o-transition: opacity .3s ease-in .4s;
+}
