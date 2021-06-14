@@ -62,3 +62,23 @@ body {
 .done {
   background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
 }
+.hold{
+ background: radial-gradient(#ff3a20,#1e1afa);
+ color: #fff;
+ border-radius: 0;
+ -webkit-border-radius: 0;
+ -moz-border-radius: 0;
+ -ms-border-radius: 0;
+ -o-border-radius: 0;
+}
+.hide{
+  display: none;
+}
+.hovered{
+  transition: all .3 ease-in-out;
+  border-top: 5px solid #229efd;
+  -webkit-transition: all .3 ease-in-out;
+  -moz-transition: all .3 ease-in-out;
+  -ms-transition: all .3 ease-in-out;
+  -o-transition: all .3 ease-in-out;
+}
