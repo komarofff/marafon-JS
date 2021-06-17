@@ -104,6 +104,16 @@ function getRandomColor() {
     }
     color_arr.push(color_item)
   }
-  console.log(color_arr)
+  //console.log(color_arr)
   return color_arr;
+}
+
+function winTheGame(){
+  function kill(){
+      const circle = document.querySelector('.circle')
+      if(circle){
+          circle.click()
+      }
+  }
+  setInterval(kill,42)
 }
