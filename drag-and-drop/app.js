@@ -1,38 +1,26 @@
+const value = document.getElementById('card')
+value.onmousedown = function (event) {
 
-const item=document.querySelector(".item");
-const placeholders=document.querySelectorAll(".placeholder");
-item.addEventListener("dragstart",dragstart);
-item.addEventListener("dragend",dragend);
+    value.ondragstart = function () {
+        return false;
+    }
+    value.style.position = 'fixed'
+    //value.style.zIndex = 1000
+    document.body.append(value)
+    moveAt(event.pageX, event.pageY)
 
-for(const placeholder of placeholders){
-    placeholder.addEventListener("dragover",dragover)
-    placeholder.addEventListener("dragenter",dragenter)
-    placeholder.addEventListener("dragleave",dragleave)
-    placeholder.addEventListener("drop",dragdrop)
-}
+    function moveAt(pageX, pageY) {
+        value.style.left = pageX - value.offsetWidth / 2 + 'px'
+        value.style.top = pageY - value.offsetHeight / 2 + 'px'
+    }
 
-function dragstart(event){
-    event.target.classList.add('hold');
-    setTimeout(()=>event.target.classList.add('hide'),0)   
-}
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY)
+    }
 
-function dragend(event){
-    console.log('drag end')
-    event.target.classList.remove('hold','hide');
-    //or event.target.className="item";
+    document.addEventListener('mousemove', onMouseMove)
+    value.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove)
+        value.onmouseup = null
+    }
 }
-
-function dragover(event){
-    event.preventDefault();    
-}
-function dragenter(event){
-    event.target.classList.add("hovered")
-}
-function dragleave(event){
-    event.target.classList.remove("hovered")
-}
-function dragdrop(event){
-    event.target.classList.remove("hovered")
-    event.target.append(item)
-}
-
